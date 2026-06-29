@@ -12,8 +12,10 @@ __pycache__/
 *$py.class
 
 # Input and Output data folders
-input/*/
-output/*/
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
 
 # IDEs and editors
 .vscode/
