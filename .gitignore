@@ -1,0 +1,26 @@
+# Secrets and local configurations
+.env
+
+# Virtual Environments
+venv/
+.venv/
+env/
+
+# Python Cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Input and Output data folders
+input/*/
+output/*/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
