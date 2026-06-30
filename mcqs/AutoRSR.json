@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "How does the `prepare` function in `auto_rsr.py` filter sentences from the JSON input?",
+    "options": {
+      "A": "It removes sentences with null values.",
+      "B": "It selects sentences based on a provided list of IDs.",
+      "C": "It filters sentences containing specific keywords.",
+      "D": "It selects sentences with a response length greater than a threshold."
+    },
+    "correct_answer": "B",
+    "explanation": "The `prepare` function filters sentences by checking if their 'id' is in the provided `id_list`. Distractor A is tempting, but the function does not check for null values."
+  },
+  {
+    "question_number": "Q2",
+    "question": "What is the role of the `normalize` function in `auto_rsr.py`?",
+    "options": {
+      "A": "It converts text to lowercase.",
+      "B": "It applies the EnglishTextNormalizer from the transformers library.",
+      "C": "It removes punctuation from the text.",
+      "D": "It replaces numbers with their word equivalents."
+    },
+    "correct_answer": "B",
+    "explanation": "The `normalize` function uses `EnglishTextNormalizer` from the `transformers` library to normalize text. Distractor A is tempting, but the function does not specifically convert text to lowercase."
+  },
+  {
+    "question_number": "Q3",
+    "question": "In `auto_score.py`, what happens if the `calculate_result` function receives a negative month value?",
+    "options": {
+      "A": "It returns 'Fail'.",
+      "B": "It raises a ValueError.",
+      "C": "It returns 'N/A'.",
+      "D": "It defaults to zero and continues processing."
+    },
+    "correct_answer": "C",
+    "explanation": "The `calculate_result` function returns 'N/A' if the month value is negative. Distractor A is tempting, but the function does not return 'Fail' for negative months."
+  },
+  {
+    "question_number": "Q4",
+    "question": "What is the purpose of the `batch` function in `auto_rsr.py`?",
+    "options": {
+      "A": "To process and score a single sentence.",
+      "B": "To batch process and score multiple RSR sessions.",
+      "C": "To align transcriptions with ground truth data.",
+      "D": "To calculate the average score of multiple sessions."
+    },
+    "correct_answer": "B",
+    "explanation": "The `batch` function processes and scores an entire RSR session, handling multiple inputs. Distractor C is tempting, but alignment is not its primary purpose."
+  },
+  {
+    "question_number": "Q5",
+    "question": "In `batch_process.py`, how does the `write_output` function handle transcription results?",
+    "options": {
+      "A": "It saves them directly to a database.",
+      "B": "It prints them to the console.",
+      "C": "It writes them to an output file.",
+      "D": "It sends them to a remote server."
+    },
+    "correct_answer": "C",
+    "explanation": "The `write_output` function writes the transcription results to an output file. Distractor B is tempting, as it does print the results, but its main action is writing to a file."
+  },
+  {
+    "question_number": "Q6",
+    "question": "What does the `transcribe` function in `whispherx.py` return?",
+    "options": {
+      "A": "A list of audio segments.",
+      "B": "A JSON object with transcription details.",
+      "C": "A plain text transcription.",
+      "D": "An audio file with embedded transcriptions."
+    },
+    "correct_answer": "B",
+    "explanation": "The `transcribe` function returns a JSON object containing transcription details. Distractor A is tempting, but the function formats the segments into JSON."
+  },
+  {
+    "question_number": "Q7",
+    "question": "How does the `align` function in `bert.py` utilize BERT for processing?",
+    "options": {
+      "A": "It uses BERT to translate text into multiple languages.",
+      "B": "It aligns sentences using BERT and formats them into JSON.",
+      "C": "It uses BERT to summarize long texts.",
+      "D": "It applies BERT to detect sentiment in sentences."
+    },
+    "correct_answer": "B",
+    "explanation": "The `align` function uses BERT to align sentences and returns a formatted JSON. Distractor C is tempting, but summarization is not its purpose."
+  },
+  {
+    "question_number": "Q8",
+    "question": "What is the significance of the `clean_bert` function in `bert.py`?",
+    "options": {
+      "A": "It removes duplicate sentences from the input.",
+      "B": "It cleans BERT alignment output to better represent RSR.",
+      "C": "It converts text to uppercase.",
+      "D": "It filters out sentences shorter than a threshold."
+    },
+    "correct_answer": "B",
+    "explanation": "The `clean_bert` function cleans BERT alignment output to better represent RSR. Distractor A is tempting, but the function focuses on cleaning alignment output."
+  },
+  {
+    "question_number": "Q9",
+    "question": "In `auto_rsr.py`, what does the `standarize` function do with filler words?",
+    "options": {
+      "A": "It highlights them in the text.",
+      "B": "It removes them from the text.",
+      "C": "It replaces them with synonyms.",
+      "D": "It counts their occurrences."
+    },
+    "correct_answer": "B",
+    "explanation": "The `standarize` function removes filler words like 'uh', 'um', and 'ah' from the text. Distractor C is tempting, but the function does not replace them with synonyms."
+  },
+  {
+    "question_number": "Q10",
+    "question": "How does the `process_file` function in `batch_process.py` ensure files are not processed multiple times?",
+    "options": {
+      "A": "It deletes files after processing.",
+      "B": "It moves files to a processed directory.",
+      "C": "It renames files after processing.",
+      "D": "It marks files with a timestamp."
+    },
+    "correct_answer": "B",
+    "explanation": "The `process_file` function moves files to a processed directory to prevent reprocessing. Distractor A is tempting, but the function does not delete files."
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "How does the `predict_one_file` function in `prediction.py` handle audio files that do not match the specified language?",
+    "options": {
+      "A": "It raises an exception and stops processing.",
+      "B": "It skips the file and logs a warning.",
+      "C": "It processes the file but marks it as unverified.",
+      "D": "It processes the file using a default language model."
+    },
+    "correct_answer": "B",
+    "explanation": "In `prediction.py`, if the language of the audio file does not match the specified languages in `LANG`, the function skips processing for that file. Distractor A is tempting, but exceptions are only raised for audio loading issues."
+  },
+  {
+    "question_number": "Q2",
+    "question": "What is the role of the `repeated_verification` function in `repeated_verification.py`?",
+    "options": {
+      "A": "To verify transcription accuracy by comparing with ground truth and move files with high error to a trash directory.",
+      "B": "To enhance transcription accuracy by reprocessing files with high error.",
+      "C": "To generate new transcriptions for files with high error.",
+      "D": "To delete files with high error from the dataset."
+    },
+    "correct_answer": "A",
+    "explanation": "The `repeated_verification` function compares transcriptions with ground truth and moves files with errors exceeding a threshold to a trash directory for further inspection. Distractor B is tempting, but the function does not reprocess files."
+  },
+  {
+    "question_number": "Q3",
+    "question": "In `segmentation.py`, what happens if the Word Error Rate (WER) of a segment exceeds the `wer_check_threshold`?",
+    "options": {
+      "A": "The segment is discarded and not saved.",
+      "B": "The segment is saved in the inspection folder for manual review.",
+      "C": "The segment is automatically corrected and saved.",
+      "D": "The segment is saved with a warning flag."
+    },
+    "correct_answer": "B",
+    "explanation": "Segments with WER exceeding the `wer_check_threshold` are saved in the inspection folder for manual review. Distractor A is tempting, but segments are not discarded; they are flagged for review."
+  },
+  {
+    "question_number": "Q4",
+    "question": "What is the purpose of the `run_user_intervention_app` function in `user_intervention.py`?",
+    "options": {
+      "A": "To start a Flask web application for user intervention in transcription editing.",
+      "B": "To automatically correct transcription errors based on user feedback.",
+      "C": "To generate a report of transcription errors for user review.",
+      "D": "To integrate user feedback directly into the transcription model."
+    },
+    "correct_answer": "A",
+    "explanation": "The `run_user_intervention_app` function starts a Flask web application that allows users to interact with and edit transcriptions. Distractor B is tempting, but the function does not automatically correct errors."
+  },
+  {
+    "question_number": "Q5",
+    "question": "In `preprocess.py`, what is the effect of setting `in_place=False` when calling `preprocess_txt`?",
+    "options": {
+      "A": "The original file is overwritten with the preprocessed text.",
+      "B": "The preprocessed text is saved to a new file specified by `out_path`.",
+      "C": "The preprocessing is skipped and the original file is left unchanged.",
+      "D": "The preprocessed text is appended to the original file."
+    },
+    "correct_answer": "B",
+    "explanation": "Setting `in_place=False` in `preprocess_txt` saves the preprocessed text to a new file specified by `out_path`. Distractor A is tempting, but `in_place=True` is required to overwrite the original file."
+  },
+  {
+    "question_number": "Q6",
+    "question": "How does the `longest_fuzzy_matching` function in `utils/longest_matching.py` determine the best matching substring?",
+    "options": {
+      "A": "By finding the substring with the highest similarity score.",
+      "B": "By calculating the Levenshtein distance and selecting the substring with the smallest distance.",
+      "C": "By comparing the length of matching substrings.",
+      "D": "By using a predefined dictionary of common phrases."
+    },
+    "correct_answer": "B",
+    "explanation": "The `longest_fuzzy_matching` function calculates the Levenshtein distance between substrings and selects the one with the smallest distance. Distractor A is tempting, but the function uses distance, not similarity scores."
+  },
+  {
+    "question_number": "Q7",
+    "question": "What is the primary function of the `segment_from_prediction` function in `segmentation.py`?",
+    "options": {
+      "A": "To split audio files into segments based on silence detection.",
+      "B": "To segment audio files based on predicted transcription timestamps and WER thresholds.",
+      "C": "To merge audio segments into a single file.",
+      "D": "To convert audio files into text transcriptions."
+    },
+    "correct_answer": "B",
+    "explanation": "The `segment_from_prediction` function segments audio files based on predicted transcription timestamps and WER thresholds. Distractor A is tempting, but segmentation is based on transcription, not silence."
+  },
+  {
+    "question_number": "Q8",
+    "question": "In `user_intervention.py`, what happens when a transcription is saved via the `/save_transcription` endpoint?",
+    "options": {
+      "A": "The transcription is appended to the existing text file.",
+      "B": "The transcription is saved to a JSON file for later retrieval.",
+      "C": "The transcription is sent to a machine learning model for validation.",
+      "D": "The transcription is discarded if it does not match the original."
+    },
+    "correct_answer": "B",
+    "explanation": "When a transcription is saved via the `/save_transcription` endpoint, it is stored in a JSON file for later retrieval. Distractor A is tempting, but the transcription is not appended to a text file."
+  },
+  {
+    "question_number": "Q9",
+    "question": "What is the role of the `EnglishTextNormalizer` in `preprocess.py`?",
+    "options": {
+      "A": "To convert text to lowercase.",
+      "B": "To remove punctuation from text.",
+      "C": "To standardize text formatting and remove unwanted characters.",
+      "D": "To translate text into English."
+    },
+    "correct_answer": "C",
+    "explanation": "The `EnglishTextNormalizer` standardizes text formatting and removes unwanted characters. Distractor A is tempting, but normalization involves more than just converting text to lowercase."
+  },
+  {
+    "question_number": "Q10",
+    "question": "In `utils/silent_pauses.py`, what is the purpose of calculating pauses between segments?",
+    "options": {
+      "A": "To identify potential errors in transcription.",
+      "B": "To improve the accuracy of word-level timestamps.",
+      "C": "To analyze the distribution of silent pauses in audio files.",
+      "D": "To adjust the audio playback speed."
+    },
+    "correct_answer": "C",
+    "explanation": "Calculating pauses between segments in `utils/silent_pauses.py` helps analyze the distribution of silent pauses in audio files. Distractor A is tempting, but the focus is on pause analysis, not error identification."
+  }
+]

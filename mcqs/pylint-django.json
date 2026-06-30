@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "How does the `AuthUserChecker` in `auth_user.py` handle constant nodes?",
+    "options": {
+      "A": "It raises an exception if the constant is not a string.",
+      "B": "It logs a warning if the constant is a hardcoded user ID.",
+      "C": "It ignores all constant nodes.",
+      "D": "It modifies the constant to a default value."
+    },
+    "correct_answer": "B",
+    "explanation": "The `visit_const` method in `AuthUserChecker` checks for hardcoded user IDs and logs a warning. Distractor A is tempting, but exceptions are not raised for non-string constants."
+  },
+  {
+    "question_number": "Q2",
+    "question": "What is the primary purpose of the `visit_importfrom` method in `AuthUserChecker`?",
+    "options": {
+      "A": "To ensure all imports are from Django modules.",
+      "B": "To check for unauthorized imports.",
+      "C": "To optimize import statements.",
+      "D": "To log all import statements for auditing."
+    },
+    "correct_answer": "B",
+    "explanation": "The `visit_importfrom` method checks for unauthorized imports, ensuring compliance with security policies. Distractor A is tempting, but the method does not restrict imports to Django modules only."
+  },
+  {
+    "question_number": "Q3",
+    "question": "In `django_installed.py`, what does the `open` method in `DjangoInstalledChecker` do?",
+    "options": {
+      "A": "Initializes the checker with default settings.",
+      "B": "Checks if Django is installed and logs the result.",
+      "C": "Opens a connection to the Django database.",
+      "D": "Loads configuration files for Django."
+    },
+    "correct_answer": "B",
+    "explanation": "The `open` method checks if Django is installed and logs the result. Distractor C is tempting, but the method does not interact with the database."
+  },
+  {
+    "question_number": "Q4",
+    "question": "What is the role of the `visit_module` method in `ForeignKeyStringsChecker`?",
+    "options": {
+      "A": "To validate foreign key strings in module-level variables.",
+      "B": "To ensure all modules import the ForeignKey class.",
+      "C": "To check for deprecated foreign key usage.",
+      "D": "To log all module-level foreign key definitions."
+    },
+    "correct_answer": "A",
+    "explanation": "The `visit_module` method validates foreign key strings in module-level variables. Distractor C is tempting, but the method focuses on validation, not deprecation."
+  },
+  {
+    "question_number": "Q5",
+    "question": "How does the `FormChecker` in `forms.py` handle class definitions?",
+    "options": {
+      "A": "It raises an error for classes without a Meta subclass.",
+      "B": "It logs a warning for classes missing form fields.",
+      "C": "It checks for the presence of a Meta subclass.",
+      "D": "It modifies classes to include default form fields."
+    },
+    "correct_answer": "C",
+    "explanation": "The `visit_classdef` method checks for the presence of a Meta subclass. Distractor A is tempting, but errors are not raised for missing Meta subclasses."
+  },
+  {
+    "question_number": "Q6",
+    "question": "What does the `visit_call` method in `JsonResponseChecker` do?",
+    "options": {
+      "A": "It ensures all JSON responses are serialized.",
+      "B": "It checks for the use of JsonResponse in function calls.",
+      "C": "It logs all function calls returning JSON.",
+      "D": "It modifies function calls to include JSON headers."
+    },
+    "correct_answer": "B",
+    "explanation": "The `visit_call` method checks for the use of JsonResponse in function calls. Distractor A is tempting, but serialization is not enforced by this method."
+  },
+  {
+    "question_number": "Q7",
+    "question": "In `migrations.py`, what is the purpose of the `close` method in `NewDbFieldWithDefaultChecker`?",
+    "options": {
+      "A": "To finalize the migration process.",
+      "B": "To log the completion of field checks.",
+      "C": "To reset the checker state.",
+      "D": "To close database connections."
+    },
+    "correct_answer": "B",
+    "explanation": "The `close` method logs the completion of field checks. Distractor D is tempting, but the method does not interact with database connections."
+  },
+  {
+    "question_number": "Q8",
+    "question": "How does the `ModelChecker` in `models.py` handle class definitions?",
+    "options": {
+      "A": "It ensures all models have a primary key.",
+      "B": "It checks for the use of Python 2 compatibility decorators.",
+      "C": "It logs warnings for models without a Meta subclass.",
+      "D": "It modifies models to include default fields."
+    },
+    "correct_answer": "B",
+    "explanation": "The `visit_classdef` method checks for the use of Python 2 compatibility decorators. Distractor A is tempting, but primary key checks are not performed by this method."
+  },
+  {
+    "question_number": "Q9",
+    "question": "What is the function of `_is_addfield_with_default` in `migrations.py`?",
+    "options": {
+      "A": "To validate new fields with default values.",
+      "B": "To log all new fields added to models.",
+      "C": "To ensure default values are not None.",
+      "D": "To modify fields to include default values."
+    },
+    "correct_answer": "A",
+    "explanation": "The `_is_addfield_with_default` function validates new fields with default values. Distractor C is tempting, but the function does not enforce non-None defaults."
+  },
+  {
+    "question_number": "Q10",
+    "question": "In `plugin.py`, what is the role of the `register` function?",
+    "options": {
+      "A": "To register new plugins with the linter.",
+      "B": "To log all registered plugins.",
+      "C": "To unregister deprecated plugins.",
+      "D": "To modify plugin configurations."
+    },
+    "correct_answer": "A",
+    "explanation": "The `register` function registers new plugins with the linter. Distractor C is tempting, but the function does not handle unregistration."
+  }
+]

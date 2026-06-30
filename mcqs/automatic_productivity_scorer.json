@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "How does the `analyze_utterances` function in `analyze.py` handle utterances that contain the string 'NADS'?",
+    "options": {
+      "A": "It raises an exception and stops processing.",
+      "B": "It logs a warning and skips the utterance.",
+      "C": "It appends a specific note and continues processing.",
+      "D": "It replaces 'NADS' with a default value and continues."
+    },
+    "correct_answer": "C",
+    "explanation": "In `analyze.py`, if 'NADS' is found in the cleaned utterance, a note 'NADS: non-active declarative structure' is appended to the results, and processing continues. Distractor B is tempting, but no logging occurs for 'NADS'."
+  },
+  {
+    "question_number": "Q2",
+    "question": "What is the role of the `clean_for_scoring` function in `extract_clean.py` when used in `analyze.py`?",
+    "options": {
+      "A": "It formats the text for CSV output.",
+      "B": "It removes specific patterns and normalizes the text.",
+      "C": "It translates text into another language.",
+      "D": "It encrypts the text for secure processing."
+    },
+    "correct_answer": "B",
+    "explanation": "The `clean_for_scoring` function removes specific patterns like 'isp@x' and normalizes the text, which is crucial for the analysis in `analyze.py`. Distractor A is tempting, but formatting for CSV is handled in `score.py`."
+  },
+  {
+    "question_number": "Q3",
+    "question": "In `interface.py`, what happens if the `output_csv_path` is not provided to the `run_full_pipeline` function?",
+    "options": {
+      "A": "The function raises an error and stops execution.",
+      "B": "The results are printed to the console instead.",
+      "C": "The results are returned but not written to a file.",
+      "D": "A default CSV file is created in the current directory."
+    },
+    "correct_answer": "C",
+    "explanation": "If `output_csv_path` is not provided, `run_full_pipeline` returns the results without writing them to a file. Distractor D is tempting, but no default file creation occurs."
+  },
+  {
+    "question_number": "Q4",
+    "question": "What is the purpose of the `extract_rr_lines` function in `extract_clean.py`?",
+    "options": {
+      "A": "To extract lines containing a specific marker from the text.",
+      "B": "To count the number of lines in the text.",
+      "C": "To convert text into a list of words.",
+      "D": "To remove all punctuation from the text."
+    },
+    "correct_answer": "A",
+    "explanation": "`extract_rr_lines` extracts lines containing the '[+rr]' marker, which is used in `interface.py` to filter relevant utterances. Distractor D is tempting, but punctuation removal is not its purpose."
+  },
+  {
+    "question_number": "Q5",
+    "question": "How does `main.py` determine which files to process?",
+    "options": {
+      "A": "It processes all files in the current directory.",
+      "B": "It processes only files specified by the user.",
+      "C": "It processes `.cha` and `.txt` files in the input directory.",
+      "D": "It processes files based on their size."
+    },
+    "correct_answer": "C",
+    "explanation": "`main.py` uses `glob` to find `.cha` and `.txt` files in the input directory, which are then processed. Distractor B is tempting, but the user specifies a directory, not individual files."
+  },
+  {
+    "question_number": "Q6",
+    "question": "What happens to processed files in `main.py` after they are analyzed?",
+    "options": {
+      "A": "They are deleted to save space.",
+      "B": "They are archived in a zip file.",
+      "C": "They are moved to a 'processed' directory.",
+      "D": "They are left unchanged in the input directory."
+    },
+    "correct_answer": "C",
+    "explanation": "Processed files are moved to a 'processed' directory to keep the input directory clean. Distractor D is tempting, but files are not left in the input directory."
+  },
+  {
+    "question_number": "Q7",
+    "question": "In `score.py`, how is the total productivity score for articles calculated?",
+    "options": {
+      "A": "By counting the number of articles in the text.",
+      "B": "By summing the 'art_productive' values for each utterance.",
+      "C": "By averaging the 'art_exists' values.",
+      "D": "By multiplying the 'art_notes' values."
+    },
+    "correct_answer": "B",
+    "explanation": "The total productivity score for articles is calculated by summing the 'art_productive' values for each utterance. Distractor A is tempting, but the score is not a simple count."
+  },
+  {
+    "question_number": "Q8",
+    "question": "What is the significance of the `seen_article_contexts` set in `analyze.py`?",
+    "options": {
+      "A": "It stores all unique words in the text.",
+      "B": "It tracks contexts where articles have been used productively.",
+      "C": "It counts the number of articles in each sentence.",
+      "D": "It logs errors encountered during processing."
+    },
+    "correct_answer": "B",
+    "explanation": "`seen_article_contexts` tracks contexts where articles have been used productively to avoid duplicates. Distractor A is tempting, but it does not store all words."
+  },
+  {
+    "question_number": "Q9",
+    "question": "How does `analyze.py` handle unintelligible words marked as 'xxx'?",
+    "options": {
+      "A": "It replaces them with a default word.",
+      "B": "It skips the utterance and logs an error.",
+      "C": "It appends a note and continues processing.",
+      "D": "It raises an exception and stops execution."
+    },
+    "correct_answer": "C",
+    "explanation": "Unintelligible words marked as 'xxx' result in a note being appended, and processing continues. Distractor B is tempting, but no logging occurs."
+  },
+  {
+    "question_number": "Q10",
+    "question": "What is the role of the `write_analysis_to_csv` function in `score.py`?",
+    "options": {
+      "A": "To format text for display in the console.",
+      "B": "To write analysis results to a CSV file.",
+      "C": "To encrypt results for secure storage.",
+      "D": "To send results to a remote server."
+    },
+    "correct_answer": "B",
+    "explanation": "`write_analysis_to_csv` writes analysis results to a CSV file, organizing data into blocks for different linguistic features. Distractor A is tempting, but formatting for display is not its purpose."
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "What happens if the `parse_chat_file` function in `csv_all.py` encounters a line that starts with the identifier but has no text?",
+    "options": {
+      "A": "The line is ignored and not added to the utterances list.",
+      "B": "An empty utterance is added to the utterances list.",
+      "C": "The function raises an exception due to invalid input.",
+      "D": "The function logs a warning and continues processing."
+    },
+    "correct_answer": "A",
+    "explanation": "In `csv_all.py`, the `append_current_utterance` function checks if `current_utterance['text'].strip()` is non-empty before appending it to the `utterances` list. Therefore, lines with only the identifier and no text are ignored. Distractor B is tempting because it assumes any line with the identifier is added, but the check for non-empty text prevents this."
+  },
+  {
+    "question_number": "Q2",
+    "question": "How does the `parse_all_chat_files_in_folder` function in `csv_all.py` handle files that do not match the specified file extension?",
+    "options": {
+      "A": "It processes them with default settings.",
+      "B": "It skips them entirely.",
+      "C": "It logs an error message for each unmatched file.",
+      "D": "It attempts to convert them to the correct format."
+    },
+    "correct_answer": "B",
+    "explanation": "In `csv_all.py`, the `parse_all_chat_files_in_folder` function checks if filenames end with the specified `file_extension`. If they do not match, the function skips processing them. Distractor C is tempting because it suggests error handling, but the code does not log errors for unmatched files."
+  },
+  {
+    "question_number": "Q3",
+    "question": "What is the role of the `build_filter_predicate` function in `csv_all.py`?",
+    "options": {
+      "A": "To compile a list of regex patterns for filtering text.",
+      "B": "To create a function that determines if text should be filtered based on conditions.",
+      "C": "To directly filter text based on predefined rules.",
+      "D": "To log filtering actions for debugging purposes."
+    },
+    "correct_answer": "B",
+    "explanation": "The `build_filter_predicate` function in `csv_all.py` constructs a predicate function that evaluates text against conditions specified in the YAML configuration. Distractor A is tempting because it involves regex, but the function's purpose is to create a predicate, not just compile patterns."
+  },
+  {
+    "question_number": "Q4",
+    "question": "In `csv_all.py`, what happens if the `yaml` module is not installed?",
+    "options": {
+      "A": "The script fails to run due to a missing import.",
+      "B": "The script uses default configuration values.",
+      "C": "The script logs an error and exits.",
+      "D": "The script attempts to install the `yaml` module automatically."
+    },
+    "correct_answer": "B",
+    "explanation": "In `csv_all.py`, if the `yaml` module is not installed, the script sets `yaml` to `None` and uses default configuration values. Distractor A is tempting because missing imports often cause failures, but the code handles this gracefully."
+  },
+  {
+    "question_number": "Q5",
+    "question": "How does the `parse_chat_file` function in `csv_all.py` determine if an utterance should be classified as a 'stall'?",
+    "options": {
+      "A": "By checking for the presence of '[//]' in the text.",
+      "B": "By checking for silent pauses of 1.0 seconds or more.",
+      "C": "By counting the number of words in the utterance.",
+      "D": "By verifying if the utterance contains any timestamps."
+    },
+    "correct_answer": "B",
+    "explanation": "In `csv_all.py`, the `has_stall` function checks for silent pauses of 1.0 seconds or more to classify an utterance as a 'stall'. Distractor A is tempting because it involves a similar check, but '[//]' is used for 'revision' classification, not 'stall'."
+  },
+  {
+    "question_number": "Q6",
+    "question": "What is the purpose of the `total_time_in_utterance` function in `csv_all.py`?",
+    "options": {
+      "A": "To calculate the total number of words in an utterance.",
+      "B": "To compute the total duration of timestamps in an utterance.",
+      "C": "To determine if an utterance contains any silent pauses.",
+      "D": "To filter out utterances that do not meet certain criteria."
+    },
+    "correct_answer": "B",
+    "explanation": "The `total_time_in_utterance` function in `csv_all.py` calculates the total duration of timestamps in an utterance by summing the differences between start and end times. Distractor A is tempting because it suggests a similar calculation, but the function focuses on time, not word count."
+  },
+  {
+    "question_number": "Q7",
+    "question": "In `csv_all.py`, what does the `parse_chat_file` function return?",
+    "options": {
+      "A": "A list of all utterances processed.",
+      "B": "A dictionary containing time and word count metrics.",
+      "C": "A CSV file with detailed utterance classifications.",
+      "D": "A boolean indicating success or failure of parsing."
+    },
+    "correct_answer": "B",
+    "explanation": "The `parse_chat_file` function in `csv_all.py` returns a dictionary with metrics such as time and word count for all and filtered utterances. Distractor A is tempting because the function processes utterances, but it returns metrics, not the utterances themselves."
+  },
+  {
+    "question_number": "Q8",
+    "question": "How does the `load_config` function in `csv_all.py` handle a missing YAML configuration file?",
+    "options": {
+      "A": "It raises a FileNotFoundError.",
+      "B": "It uses default configuration values.",
+      "C": "It logs an error and exits the script.",
+      "D": "It prompts the user to provide a valid file path."
+    },
+    "correct_answer": "B",
+    "explanation": "In `csv_all.py`, if the YAML configuration file is missing, the `load_config` function logs a warning and uses default configuration values. Distractor A is tempting because missing files often cause errors, but the function handles this case gracefully."
+  },
+  {
+    "question_number": "Q9",
+    "question": "What is the effect of setting the `detailed` parameter to `True` in the `parse_chat_file` function in `csv_all.py`?",
+    "options": {
+      "A": "It includes all utterances in the output CSV.",
+      "B": "It writes detailed classifications of filtered utterances to a CSV.",
+      "C": "It logs additional debug information during parsing.",
+      "D": "It increases the verbosity of console output."
+    },
+    "correct_answer": "B",
+    "explanation": "When `detailed` is set to `True` in `csv_all.py`, the `parse_chat_file` function writes detailed classifications of filtered utterances to a CSV file. Distractor A is tempting because it suggests more data is included, but only filtered utterances are detailed."
+  },
+  {
+    "question_number": "Q10",
+    "question": "In `csv_all.py`, what happens if the `filter_predicate` is not provided to the `parse_chat_file` function?",
+    "options": {
+      "A": "The function raises an exception due to a missing argument.",
+      "B": "The function uses a fallback predicate that checks for '[+ number]'.",
+      "C": "The function processes all utterances without filtering.",
+      "D": "The function logs a warning and skips filtering."
+    },
+    "correct_answer": "B",
+    "explanation": "If `filter_predicate` is not provided in `csv_all.py`, the `parse_chat_file` function uses a fallback predicate that checks for '[+ number]' in the text. Distractor C is tempting because it suggests no filtering occurs, but the fallback ensures filtering still happens."
+  }
+]

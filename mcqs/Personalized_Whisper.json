@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "In `arctic_lora.py`, what is the purpose of the `set_seed` function?",
+    "options": {
+      "A": "To initialize the model weights.",
+      "B": "To ensure reproducibility by setting random seeds.",
+      "C": "To configure the data loader settings.",
+      "D": "To optimize the training process."
+    },
+    "correct_answer": "B",
+    "explanation": "The `set_seed` function sets the random seed for Python's random module, NumPy, and PyTorch to ensure reproducibility. Distractor A is tempting, but model weights are initialized separately."
+  },
+  {
+    "question_number": "Q2",
+    "question": "How does the `MyDataset` class in `mfcc.py` handle audio data?",
+    "options": {
+      "A": "It converts audio data to spectrograms using Whisper.",
+      "B": "It extracts MFCC features from audio data.",
+      "C": "It normalizes audio data to a fixed length.",
+      "D": "It applies a low-pass filter to the audio data."
+    },
+    "correct_answer": "B",
+    "explanation": "The `MyDataset` class in `mfcc.py` extracts MFCC features using the `librosa.feature.mfcc` function. Distractor A is tempting, but Whisper is not used for spectrogram conversion in this context."
+  },
+  {
+    "question_number": "Q3",
+    "question": "What is the role of the `Net` class in `vanilla.py`?",
+    "options": {
+      "A": "To preprocess audio data before training.",
+      "B": "To define a neural network architecture for classification.",
+      "C": "To handle data augmentation for training.",
+      "D": "To manage the training loop and evaluation metrics."
+    },
+    "correct_answer": "B",
+    "explanation": "The `Net` class defines a neural network architecture with convolutional layers for classification tasks. Distractor D is tempting, but the training loop is managed outside the class."
+  },
+  {
+    "question_number": "Q4",
+    "question": "In `vanilla_arctic.py`, how is the training data split into training and testing datasets?",
+    "options": {
+      "A": "Using a fixed 70-30 split.",
+      "B": "Using a random 80-20 split.",
+      "C": "Using a stratified 60-40 split.",
+      "D": "Using a sequential 90-10 split."
+    },
+    "correct_answer": "B",
+    "explanation": "The `random_split` function is used to split the dataset into 80% training and 20% testing data. Distractor A is tempting, but the split is not fixed at 70-30."
+  },
+  {
+    "question_number": "Q5",
+    "question": "What is the significance of the `wer` function in `arctic_lora_inference.py`?",
+    "options": {
+      "A": "It calculates the accuracy of the model.",
+      "B": "It measures the Word Error Rate of transcriptions.",
+      "C": "It evaluates the model's precision and recall.",
+      "D": "It computes the loss during training."
+    },
+    "correct_answer": "B",
+    "explanation": "The `wer` function measures the Word Error Rate, which is used to evaluate the accuracy of transcriptions. Distractor A is tempting, but accuracy is not directly calculated by `wer`."
+  },
+  {
+    "question_number": "Q6",
+    "question": "How does `vanilla2.py` utilize the LSTM layer in its neural network?",
+    "options": {
+      "A": "For feature extraction from audio data.",
+      "B": "For sequence modeling of audio features.",
+      "C": "For dimensionality reduction of input data.",
+      "D": "For data augmentation during training."
+    },
+    "correct_answer": "B",
+    "explanation": "The LSTM layer in `vanilla2.py` is used for sequence modeling of audio features, capturing temporal dependencies. Distractor A is tempting, but feature extraction is not the primary role of LSTM here."
+  },
+  {
+    "question_number": "Q7",
+    "question": "In `arctic_lora.py`, what happens if a `.wav` file does not contain 'b' in its name?",
+    "options": {
+      "A": "It is ignored and not processed.",
+      "B": "It is added to the training dataset.",
+      "C": "It is added to the testing dataset.",
+      "D": "It triggers an error in the script."
+    },
+    "correct_answer": "B",
+    "explanation": "Files without 'b' in their name are added to the training dataset. Distractor A is tempting, but such files are not ignored."
+  },
+  {
+    "question_number": "Q8",
+    "question": "What is the purpose of the `DataCollatorSpeechSeq2SeqWithPadding` class in `arctic_lora.py`?",
+    "options": {
+      "A": "To collate data for batch processing.",
+      "B": "To pad sequences for uniform input size.",
+      "C": "To augment data with noise.",
+      "D": "To normalize audio features."
+    },
+    "correct_answer": "B",
+    "explanation": "The `DataCollatorSpeechSeq2SeqWithPadding` class pads sequences to ensure uniform input size for batch processing. Distractor A is tempting, but the primary focus is on padding."
+  },
+  {
+    "question_number": "Q9",
+    "question": "In `mfcc.py`, how is the accuracy of the network evaluated?",
+    "options": {
+      "A": "By comparing predicted and true labels.",
+      "B": "By calculating the loss function value.",
+      "C": "By measuring the execution time of the model.",
+      "D": "By analyzing the confusion matrix."
+    },
+    "correct_answer": "A",
+    "explanation": "Accuracy is evaluated by comparing predicted labels with true labels. Distractor D is tempting, but a confusion matrix is not explicitly used in the code."
+  },
+  {
+    "question_number": "Q10",
+    "question": "What is the effect of setting `fp16=True` in `arctic_lora.py`?",
+    "options": {
+      "A": "It enables half-precision training for faster computation.",
+      "B": "It doubles the precision of floating-point operations.",
+      "C": "It reduces the memory usage by half.",
+      "D": "It increases the batch size automatically."
+    },
+    "correct_answer": "A",
+    "explanation": "Setting `fp16=True` enables half-precision training, which can lead to faster computation and reduced memory usage. Distractor C is tempting, but the primary focus is on computation speed."
+  }
+]

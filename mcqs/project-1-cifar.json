@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "In the `CIFARLitModule` class, what happens when both Mixup and CutMix are enabled during training?",
+    "options": {
+      "A": "Both augmentations are applied simultaneously to each batch.",
+      "B": "Only Mixup is applied if the current epoch is less than half of the max epochs.",
+      "C": "Only CutMix is applied if the current epoch is less than half of the max epochs.",
+      "D": "Neither augmentation is applied if both are enabled."
+    },
+    "correct_answer": "B",
+    "explanation": "In `CIFARLitModule`, Mixup is applied if `use_mixup` is true and the current epoch is less than half of the max epochs. If Mixup is not applied, CutMix is considered next. Distractor A is tempting, but the code applies only one augmentation at a time."
+  },
+  {
+    "question_number": "Q2",
+    "question": "How does the `create_model` function in `model_factory.py` handle a model name that is not available in `torchvision.models`?",
+    "options": {
+      "A": "It defaults to a ResNet model.",
+      "B": "It raises a ValueError indicating the model is not available.",
+      "C": "It logs a warning and continues with a basic model.",
+      "D": "It attempts to download the model from an external source."
+    },
+    "correct_answer": "B",
+    "explanation": "The `create_model` function raises a `ValueError` if the model name is not found in `torchvision.models`. Distractor A is tempting, but there is no default model fallback in the code."
+  },
+  {
+    "question_number": "Q3",
+    "question": "What is the role of the `mixup_criterion` function in `augmentations.py`?",
+    "options": {
+      "A": "It calculates the loss for Mixup by averaging the losses of two mixed samples.",
+      "B": "It calculates the loss for Mixup by weighting the losses of two mixed samples based on lambda.",
+      "C": "It calculates the loss for Mixup by using only the dominant label's loss.",
+      "D": "It calculates the loss for Mixup by using the minimum loss of the two mixed samples."
+    },
+    "correct_answer": "B",
+    "explanation": "The `mixup_criterion` function calculates the loss by weighting the losses of two mixed samples based on lambda. Distractor A is tempting, but the function does not simply average the losses."
+  },
+  {
+    "question_number": "Q4",
+    "question": "In `lightning_module.py`, how is the learning rate scheduler configured when the `scheduler` is set to 'plateau'?",
+    "options": {
+      "A": "It uses a constant learning rate throughout training.",
+      "B": "It reduces the learning rate when a metric has stopped improving.",
+      "C": "It increases the learning rate after every epoch.",
+      "D": "It alternates the learning rate between high and low values."
+    },
+    "correct_answer": "B",
+    "explanation": "When the `scheduler` is set to 'plateau', the learning rate is reduced when a monitored metric has stopped improving. Distractor A is tempting, but the scheduler is not constant."
+  },
+  {
+    "question_number": "Q5",
+    "question": "What happens if the `mixup_data` function is called with an alpha value of 0?",
+    "options": {
+      "A": "It raises an error due to invalid alpha.",
+      "B": "It returns the original data without any mixing.",
+      "C": "It performs Mixup with a lambda value of 0.5.",
+      "D": "It performs Mixup with a lambda value of 1."
+    },
+    "correct_answer": "D",
+    "explanation": "If `alpha` is 0, `mixup_data` sets `lam` to 1, resulting in no mixing and returning the original data. Distractor B is tempting, but the function explicitly sets `lam` to 1."
+  },
+  {
+    "question_number": "Q6",
+    "question": "In `lightning_module.py`, how is the accuracy metric updated during training when Mixup is applied?",
+    "options": {
+      "A": "Accuracy is updated using the average of both labels.",
+      "B": "Accuracy is updated using the dominant label based on lambda.",
+      "C": "Accuracy is updated using only the first label.",
+      "D": "Accuracy is not updated when Mixup is applied."
+    },
+    "correct_answer": "B",
+    "explanation": "During Mixup, accuracy is updated using the dominant label based on lambda. Distractor A is tempting, but the code uses only one label for accuracy."
+  },
+  {
+    "question_number": "Q7",
+    "question": "What is the purpose of the `_rand_bbox` function in `augmentations.py`?",
+    "options": {
+      "A": "To generate a random bounding box for cropping images.",
+      "B": "To generate a random bounding box for CutMix augmentation.",
+      "C": "To generate a random bounding box for Mixup augmentation.",
+      "D": "To generate a random bounding box for resizing images."
+    },
+    "correct_answer": "B",
+    "explanation": "The `_rand_bbox` function generates a random bounding box for CutMix augmentation. Distractor A is tempting, but the function is specifically for CutMix."
+  },
+  {
+    "question_number": "Q8",
+    "question": "How does the `CIFARLitModule` handle logging of training metrics?",
+    "options": {
+      "A": "Metrics are logged only at the end of training.",
+      "B": "Metrics are logged at each step and epoch.",
+      "C": "Metrics are logged only if the loss is below a threshold.",
+      "D": "Metrics are not logged during training."
+    },
+    "correct_answer": "B",
+    "explanation": "In `CIFARLitModule`, metrics are logged at each step and epoch using the `self.log` method. Distractor A is tempting, but logging occurs more frequently."
+  },
+  {
+    "question_number": "Q9",
+    "question": "What happens if the `create_model` function is called with a model name that starts with 'mobilenet_v'?",
+    "options": {
+      "A": "It raises an error due to unsupported model.",
+      "B": "It adapts the classifier layer for the specified number of classes.",
+      "C": "It uses a default classifier layer without adaptation.",
+      "D": "It logs a warning and uses a basic model."
+    },
+    "correct_answer": "B",
+    "explanation": "For 'mobilenet_v', the `create_model` function adapts the classifier layer for the specified number of classes. Distractor A is tempting, but the function supports 'mobilenet_v'."
+  },
+  {
+    "question_number": "Q10",
+    "question": "In `lightning_module.py`, what determines whether Mixup or CutMix is applied during training?",
+    "options": {
+      "A": "The current epoch and augmentation flags in the config.",
+      "B": "The batch size and learning rate.",
+      "C": "The model architecture and optimizer settings.",
+      "D": "The validation accuracy and loss."
+    },
+    "correct_answer": "A",
+    "explanation": "The application of Mixup or CutMix is determined by the current epoch and the augmentation flags (`use_mixup`, `use_cutmix`) in the config. Distractor B is tempting, but these factors are not considered for augmentation."
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "In `dataprocess.py`, what is the primary purpose of the `delay_slew_compose` function?",
+    "options": {
+      "A": "To compute the shortest path in a graph.",
+      "B": "To compose and return graph attributes from JSON data.",
+      "C": "To initialize parameters for a neural network.",
+      "D": "To split datasets into training and validation sets."
+    },
+    "correct_answer": "B",
+    "explanation": "The `delay_slew_compose` function reads JSON data, processes it into graph structures, and returns lists of graph attributes such as node features and edge indices. Option A is incorrect as it does not compute paths, and Option D is incorrect as it does not handle dataset splitting."
+  },
+  {
+    "question_number": "Q2",
+    "question": "How does the `GATConv` class in `gat_conv.py` handle multi-dimensional edge features?",
+    "options": {
+      "A": "It ignores edge features entirely.",
+      "B": "It uses a separate linear transformation for edge features.",
+      "C": "It concatenates edge features with node features without transformation.",
+      "D": "It applies a dropout to edge features before processing."
+    },
+    "correct_answer": "B",
+    "explanation": "The `GATConv` class uses a separate linear transformation (`lin_edge`) for edge features when `edge_dim` is specified. Option A is incorrect as edge features are not ignored, and Option C is incorrect as edge features are transformed before concatenation."
+  },
+  {
+    "question_number": "Q3",
+    "question": "What role does the `zeropad` function in `utils.py` play in data processing?",
+    "options": {
+      "A": "It normalizes data to a standard scale.",
+      "B": "It pads data sequences to a uniform length.",
+      "C": "It splits data into batches for training.",
+      "D": "It applies a mask to filter out invalid data points."
+    },
+    "correct_answer": "B",
+    "explanation": "The `zeropad` function pads data sequences to a specified length, ensuring uniformity across batches. Option A is incorrect as it does not normalize data, and Option D is incorrect as it does not apply masks."
+  },
+  {
+    "question_number": "Q4",
+    "question": "In `dataprocess.py`, how does the `makegraphs` class utilize the `vseq_compose` function?",
+    "options": {
+      "A": "It uses `vseq_compose` to initialize neural network weights.",
+      "B": "It calls `vseq_compose` to generate graph datasets for processing.",
+      "C": "It uses `vseq_compose` to compute graph attention coefficients.",
+      "D": "It calls `vseq_compose` to visualize graph structures."
+    },
+    "correct_answer": "B",
+    "explanation": "The `makegraphs` class calls `vseq_compose` to generate graph datasets, which are then processed and saved. Option A is incorrect as it does not initialize weights, and Option D is incorrect as it does not visualize graphs."
+  },
+  {
+    "question_number": "Q5",
+    "question": "What is the purpose of the `edge_update` method in the `GATConv` class?",
+    "options": {
+      "A": "To compute node embeddings.",
+      "B": "To update edge attributes based on attention coefficients.",
+      "C": "To initialize graph structures.",
+      "D": "To apply dropout to node features."
+    },
+    "correct_answer": "B",
+    "explanation": "The `edge_update` method updates edge attributes using attention coefficients, which are crucial for the attention mechanism in GAT. Option A is incorrect as it does not compute node embeddings, and Option D is incorrect as it does not apply dropout to node features."
+  },
+  {
+    "question_number": "Q6",
+    "question": "How does the `elmore_delay` function in `utils.py` calculate delays?",
+    "options": {
+      "A": "By using a linear regression model.",
+      "B": "By computing the sum of resistances and capacitances along graph paths.",
+      "C": "By averaging node features across the graph.",
+      "D": "By applying a Fourier transform to the data."
+    },
+    "correct_answer": "B",
+    "explanation": "The `elmore_delay` function calculates delays by summing resistances and capacitances along the shortest paths in the graph. Option A is incorrect as it does not use regression, and Option D is incorrect as it does not use Fourier transforms."
+  },
+  {
+    "question_number": "Q7",
+    "question": "In `dataprocess.py`, what is the significance of the `generate_jth` function?",
+    "options": {
+      "A": "It generates junction tree hierarchies for graph decomposition.",
+      "B": "It computes the eigenvalues of a graph's adjacency matrix.",
+      "C": "It initializes graph node features to zero.",
+      "D": "It applies a mask to filter out invalid graph nodes."
+    },
+    "correct_answer": "A",
+    "explanation": "The `generate_jth` function constructs junction tree hierarchies, which are used for graph decomposition. Option B is incorrect as it does not compute eigenvalues, and Option D is incorrect as it does not apply masks."
+  },
+  {
+    "question_number": "Q8",
+    "question": "What is the role of the `parser_from_dict` function in `utils.py`?",
+    "options": {
+      "A": "To parse command-line arguments from a dictionary.",
+      "B": "To convert a dictionary into a JSON string.",
+      "C": "To initialize neural network parameters from a dictionary.",
+      "D": "To split a dataset based on dictionary keys."
+    },
+    "correct_answer": "A",
+    "explanation": "The `parser_from_dict` function creates a command-line argument parser from a dictionary, allowing easy configuration of script parameters. Option B is incorrect as it does not convert to JSON, and Option D is incorrect as it does not split datasets."
+  },
+  {
+    "question_number": "Q9",
+    "question": "How does the `sample` function in `utils.py` contribute to model training?",
+    "options": {
+      "A": "It generates random noise for data augmentation.",
+      "B": "It samples positive and negative examples for contrastive learning.",
+      "C": "It initializes model weights using a sampling distribution.",
+      "D": "It applies dropout to input data during training."
+    },
+    "correct_answer": "B",
+    "explanation": "The `sample` function selects positive and negative examples for contrastive learning, which is important for training models to distinguish between similar and dissimilar data points. Option A is incorrect as it does not generate noise, and Option D is incorrect as it does not apply dropout."
+  },
+  {
+    "question_number": "Q10",
+    "question": "In `gat_conv.py`, what is the effect of setting `concat=False` in the `GATConv` class?",
+    "options": {
+      "A": "It disables the attention mechanism.",
+      "B": "It averages the attention heads instead of concatenating them.",
+      "C": "It removes self-loops from the graph.",
+      "D": "It applies a ReLU activation to the output."
+    },
+    "correct_answer": "B",
+    "explanation": "Setting `concat=False` in the `GATConv` class results in averaging the attention heads instead of concatenating them, which affects how the final node features are computed. Option A is incorrect as it does not disable attention, and Option D is incorrect as it does not apply ReLU."
+  }
+]

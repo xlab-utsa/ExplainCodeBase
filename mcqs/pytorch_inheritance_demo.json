@@ -1,0 +1,122 @@
+[
+  {
+    "question_number": "Q1",
+    "question": "How does the `CompositeModel` in `composite_models.py` handle regularization?",
+    "options": {
+      "A": "It uses L1 regularization on all layers.",
+      "B": "It applies dropout to the hidden layer.",
+      "C": "It uses a `Regularizer` class to apply L2 regularization.",
+      "D": "It does not perform any regularization."
+    },
+    "correct_answer": "C",
+    "explanation": "The `CompositeModel` uses the `Regularizer` class to apply L2 regularization by summing the squares of all parameters. Distractor A is tempting, but the code explicitly uses L2 regularization."
+  },
+  {
+    "question_number": "Q2",
+    "question": "What happens when the `CompositeModel`'s `describe` method is called?",
+    "options": {
+      "A": "It returns a string representation of the model's architecture.",
+      "B": "It raises a `NotImplementedError` because it's not defined.",
+      "C": "It returns a dictionary with model type and dimensions.",
+      "D": "It prints the model's parameters to the console."
+    },
+    "correct_answer": "C",
+    "explanation": "The `describe` method in `CompositeModel` returns a dictionary containing the model type, input dimension, feature dimension, hidden dimension, and parameter complexity. Distractor B is tempting, but the method is implemented in `CompositeModel`."
+  },
+  {
+    "question_number": "Q3",
+    "question": "In `main.py`, what is the purpose of the `demonstrate_inheritance` function?",
+    "options": {
+      "A": "To train the `CompositeModel` on sample data.",
+      "B": "To showcase the use of inheritance and model interactions.",
+      "C": "To evaluate the performance of different models.",
+      "D": "To visualize the model's architecture."
+    },
+    "correct_answer": "B",
+    "explanation": "The `demonstrate_inheritance` function is designed to showcase how different models and inheritance patterns are used, including instantiation and method calls. Distractor A is tempting, but training is done in `train_model_example`."
+  },
+  {
+    "question_number": "Q4",
+    "question": "What is the role of the `CustomLoss` class in `advanced_models.py`?",
+    "options": {
+      "A": "It implements a new loss function from scratch.",
+      "B": "It extends `LossModule` to apply a weighted loss.",
+      "C": "It replaces the default loss function with cross-entropy.",
+      "D": "It provides a loss function for classification tasks."
+    },
+    "correct_answer": "B",
+    "explanation": "`CustomLoss` extends `LossModule` and applies a weight to the base loss function. Distractor A is tempting, but it does not implement a new loss function from scratch."
+  },
+  {
+    "question_number": "Q5",
+    "question": "How does the `AdvancedModel` in `advanced_models.py` combine features from its parent classes?",
+    "options": {
+      "A": "It uses a convolutional layer to merge features.",
+      "B": "It concatenates outputs and applies a linear layer.",
+      "C": "It averages the outputs of the parent classes.",
+      "D": "It uses a recurrent layer to process features sequentially."
+    },
+    "correct_answer": "B",
+    "explanation": "The `AdvancedModel` concatenates the outputs from `BaseModel` and `FeatureExtractor` and applies a linear layer for fusion. Distractor A is tempting, but no convolutional layers are used."
+  },
+  {
+    "question_number": "Q6",
+    "question": "What is the effect of calling `compute_regularized_loss` in `CompositeModel`?",
+    "options": {
+      "A": "It computes loss without any regularization.",
+      "B": "It applies L1 regularization to the loss.",
+      "C": "It combines base loss with L2 regularization.",
+      "D": "It only computes the regularization term."
+    },
+    "correct_answer": "C",
+    "explanation": "`compute_regularized_loss` combines the base loss computed by `CustomLoss` with L2 regularization from `Regularizer`. Distractor A is tempting, but regularization is explicitly applied."
+  },
+  {
+    "question_number": "Q7",
+    "question": "In `base_models.py`, what is the purpose of the `extract_features` method in `FeatureExtractor`?",
+    "options": {
+      "A": "To modify the input data before feature extraction.",
+      "B": "To extract features without updating gradients.",
+      "C": "To apply additional transformations to the features.",
+      "D": "To compute the loss based on extracted features."
+    },
+    "correct_answer": "B",
+    "explanation": "`extract_features` uses `torch.no_grad()` to extract features without updating gradients, useful for inference. Distractor A is tempting, but the method does not modify input data."
+  },
+  {
+    "question_number": "Q8",
+    "question": "How does the `CompositeModel` save its state in `composite_models.py`?",
+    "options": {
+      "A": "It saves only the model's weights to a file.",
+      "B": "It saves the model's state and configuration.",
+      "C": "It saves the model's architecture as a JSON file.",
+      "D": "It does not support saving the model's state."
+    },
+    "correct_answer": "B",
+    "explanation": "`CompositeModel` saves both the model's state dictionary and its configuration using the `save_checkpoint` method. Distractor A is tempting, but configuration is also saved."
+  },
+  {
+    "question_number": "Q9",
+    "question": "What is the significance of the `ModelInterface` in `composite_models.py`?",
+    "options": {
+      "A": "It provides default implementations for model methods.",
+      "B": "It enforces implementation of key model methods.",
+      "C": "It defines a new type of neural network layer.",
+      "D": "It optimizes model performance during training."
+    },
+    "correct_answer": "B",
+    "explanation": "`ModelInterface` enforces the implementation of methods like `describe`, `save_checkpoint`, and `load_checkpoint` in subclasses. Distractor A is tempting, but it does not provide default implementations."
+  },
+  {
+    "question_number": "Q10",
+    "question": "In `main.py`, what is the purpose of the `train_model_example` function?",
+    "options": {
+      "A": "To demonstrate model evaluation on a test set.",
+      "B": "To showcase a simple training loop with `CompositeModel`.",
+      "C": "To visualize the training process with plots.",
+      "D": "To compare different optimization algorithms."
+    },
+    "correct_answer": "B",
+    "explanation": "`train_model_example` demonstrates a simple training loop using `CompositeModel`, including forward pass, loss computation, and optimization. Distractor A is tempting, but evaluation is not the focus."
+  }
+]
