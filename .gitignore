@@ -14,6 +14,7 @@ __pycache__/
 # Input and Output data folders
 input/*
 !input/.gitkeep
+!input/inheritance/
 output/*
 !output/.gitkeep
 
