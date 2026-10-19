@@ -10,6 +10,8 @@ env/
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
+.pytest_cache/
 
 # Input and Output data folders
 input/*
