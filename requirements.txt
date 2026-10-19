@@ -1,9 +1,11 @@
-anthropic==0.71.0
-astor==0.8.1
-openai==2.6.0
-protobuf==6.33.0
-# torch==2.4.1+cu124
-# transformers==4.51.1
-# Flask==3.1.2
-code2flow
-google-genai
+# Core: talks to vLLM through its OpenAI-compatible API and parses code with tree-sitter.
+openai>=1.40
+tree-sitter>=0.25
+tree-sitter-language-pack>=1.22
+
+# Optional hosted providers (only needed with --provider anthropic / gemini):
+# anthropic>=0.40
+# google-genai>=1.0
+
+# Tests
+pytest>=8
